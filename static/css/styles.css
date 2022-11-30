@@ -1,0 +1,101 @@
+.menu{
+    text-align: center;
+    padding: 15px 0;
+}
+
+.menu a{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.header{
+    background-image: url('../img/header.jpg');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 70px;
+    background-position-y: 45%;
+}
+
+.header p{
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 20%;
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
+
+.my_background{
+    background-color: #e9eded;
+}
+
+.first_text{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.name{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.video{
+    text-align: center;
+}
+
+.video video{
+    padding: 10px;
+    width: 80%;
+}
+
+.comment{
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.my-form{
+    width: 30%;
+    display: flex !important;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+.cards-tasks{
+
+}
+
+.card-task{
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid black;
+    width: 100%;
+}
+
+.card-task a{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #00ff8963;
+    text-decoration: none;
+    color: black;
+}
+
+
+
+@media screen and (min-width: 540px) {
+
+}
+
+@media screen and (min-width: 992px) {
+
+}
+
+@media screen and (min-width: 1320px) {
+
+}

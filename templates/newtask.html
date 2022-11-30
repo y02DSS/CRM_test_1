@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="background-color: white; margin-top: 20px">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group my-form">
+            <legend class="border-bottom mb-4">Новая заявка</legend>
+            {{form_new_task}}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit" style="margin-bottom: 10px">Отправить</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

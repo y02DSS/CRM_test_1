@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load Main_tags %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="background-color: white; margin-top: 20px">
+  <h2 class="">{{ user.username }} ({{ user.first_name }} {{ user.last_name }})</h2>
+  <p class="">{{ user.email }}</p>
+  <p>Специализация - {{master}}</p>
+  <div class="cards-tasks row g-5">
+    {% for task in tasks %}
+      <div class="col-3">
+        {% if task.is_complete %}
+        <div class="card-task" style="border: 3px solid green;">
+        {% else %}
+        <div class="card-task" style="border: 3px solid red;">
+        {% endif %}
+          <p>Заявка №{{task.id}}</p>
+          <p>Дом - {{task.home}}</p>
+          <p>Комментарий - {{task.comment}}</p>
+          <p>Запрос отправлен - {{task.date}}</p>
+          {% if task.is_complete %}
+          <p style="color: green">Отчет отправлен</p>
+          {% else %}
+            <a onclick="fill({{task.id}})" href="#" data-bs-target="#Complete" data-bs-toggle="modal">Заполнить отчет</a>      
+          {% endif %}
+        </div>      
+      </div>
+    {% endfor %}    
+  </div>
+</div>
+
+<div class="modal fade" id="Complete" name="all_forms" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="FormComplete" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Отчет</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="" enctype="multipart/form-data" method="POST" class="login-model-form">
+        <div class="modal-body">
+            <div class="my-form w-100">
+              {% csrf_token %}
+              <input name="this_id" id="this_id" style="display: none;" value="">
+              {{form_completed_task}}
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+          <button type="submit" class="btn btn-primary">Отправить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src={% static "js/profile.js" %}?{% cache_bust %}></script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="background-color: white; margin-top: 20px">
+    <p class="first_text">
+        В случае возникновения сбоя в работе оборудования, неисправностей или аварии обращаться в круглосуточную аварийно-диспетчерскую службу Исполнителя по телефонам:
+        +7 495 181-50-34 
+        <br>
+        По вопросам корреспонденции и бухгалтерии:
+        ☏ моб.: +7 969 777-25-89
+        <br>
+        Работу выполнил: <span class="name">{{name}}</span>
+    </p>
+    <div class="video">
+        <video src="../{{video}}" controls></video>                
+    </div>
+    <div class="comment">
+        <p>
+            {{comment}}
+        </p>
+    </div>
+</div>
+{% endblock %}

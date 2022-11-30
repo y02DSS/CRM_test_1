@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load Main_tags %}
+{% load static %}
+
+{% block content %}
+<div class="container p-3" style="background-color: white; margin-top: 20px">
+    <div class="row gy-3">
+        {% for master, persent, tasks in masters_and_tasks %}
+            <div class="col-6">
+                <div class="full-card card-task">
+                    <h2>{{master}} ({{master.user.first_name}} {{master.user.last_name}})</h2>
+                    <h4>{{master.type_reair}}</h4>
+                    <h3>Выполненно: {{persent}}%</h3>
+                    <div class="task-card" style="display: flex; flex-direction: column-reverse;">
+                        {% for task in tasks %}
+                            {% if task.is_complete %}
+                                <p style="color: green">Имя клиента: {{task}}<br>Наименование объекта: {{task.home}}<br>Заявка оставлена: {{task.date}}</p>
+                            {% else %}
+                                <p style="color: red">Имя клиента: {{task}}<br>Наименование объекта: {{task.home}}<br>Заявка оставлена: {{task.date}}</p>
+                            {% endif %}
+                        {% endfor %}                
+                    </div>
+                </div>
+            </div>
+        {% endfor %}        
+    </div>
+</div>
+{% endblock %}
